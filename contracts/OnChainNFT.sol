@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -37,7 +37,7 @@ contract OnChainNFT is ERC721URIStorage, Ownable(msg.sender) {
                     Base64.encode(
                         bytes(
                             abi.encodePacked(
-                                '{"name": "LCM ON-CHAINED", "description": "A simple SVG based on-chain NFT", "image":"',
+                                '{"name": "ON-CHAIN NFT", "description": "A simple SVG based on-chain NFT", "image":"',
                                 imageURI,
                                 '"}'
                             )

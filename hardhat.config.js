@@ -5,12 +5,29 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.8.24",
   networks: {
-    sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_ID}`,
+    // for testnet
+    rootstock: {
+      url: process.env.ROOTSTOCK_TESTNET_RPC_URL,
       accounts: [process.env.WALLET_KEY],
-    }
+    },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
-  }  
+    // Use "123" as a placeholder, because Blockscout doesn't need a real API key, and Hardhat will complain if this property isn't set.
+    apiKey: {
+      rootstock: '123',
+    },
+    customChains: [
+      {
+        network: "rootstock",
+        chainId: 31,
+        urls: {
+          apiURL: "https://rootstock-testnet.blockscout.com/api/",
+          browserURL: "https://rootstock-testnet.blockscout.com/",
+        }
+      },
+    ],
+  },
+  sourcify: {
+    enabled: false,
+  }
 };
