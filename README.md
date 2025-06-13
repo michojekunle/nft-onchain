@@ -1,13 +1,41 @@
-# Sample Hardhat Project
+# On-Chain NFT
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This project implements a fully on-chain NFT (Non-Fungible Token) where both the metadata and artwork are stored directly on the Ethereum blockchain as SVG images encoded in Base64 format.
 
-Try running some of the following tasks:
+## Features
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+- Fully on-chain NFT implementation
+- SVG-based artwork stored directly in smart contract
+- Base64 encoding for image and metadata storage
+- Owner-only minting capability
+- ERC721 compliant
+
+## Prerequisites
+
+- Node.js (v20+ recommended)
+- npm or yarn
+- Hardhat
+- MetaMask wallet
+
+## Setup
+
+1. Clone the repository:
+    ```shell
+    git clone https://github.com/michojekunle/nft-onchain/tree/rsk-onchain-nft.git
+    ```
+2. Install dependencies
+    ```shell
+    cd rsk-onchain-nft
+    npm install
+    ```
+3. Add your environment variables
+    create a new file `.env` and add the following 
+    ```bash
+    WALLET_KEY=your-private-key
+    ROOTSTOCK_TESTNET_RPC_URL=your-alchemy-rpc-testnet-url
+    ```
+4. Compile and deploy contract
+    ```shell
+    npx hardhat compile
+    npx hardhat run scripts/deploy.js --network rootstock
+    ```
